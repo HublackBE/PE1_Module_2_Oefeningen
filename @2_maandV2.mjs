@@ -3,7 +3,7 @@ import {stdin as input, stdout as output} from 'node:process';
 const userInput = readline.createInterface(input, output);
 
 let month = await userInput.question('Geef me een maand: ');
-let year = await userInput.question('Geef me een jaar: ');
+let year = parseFloat(await userInput.question('Geef me een jaar: '));
 let februariExtra;
 
 if(year % 400 === 0){
@@ -24,16 +24,16 @@ switch(month.toLowerCase()){
     case 'augustus':
     case 'oktober':
     case 'december':
-        console.log(month, 'heeft dan 31 dagen.');
+        console.log('In', year, 'heeft', month, 31, 'dagen.');
         break;
     case 'april':
     case 'juni':
     case 'september':
     case 'november':
-        console.log(month, 'heeft dan 30 dagen.');
+        console.log('In', year, 'heeft', month, 30, 'dagen.');
         break;
     case 'februari':
-        console.log(month, 'heeft dan', 28 + februariExtra ,'dagen.');
+        console.log('In', year, 'heeft', month, 28 + februariExtra,'dagen.');
         break;
     default:
         console.log(month, 'bestaat niet als maand.');
